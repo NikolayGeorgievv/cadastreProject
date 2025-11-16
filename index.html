@@ -76,36 +76,134 @@
         <div class="row">
             <div class="col-12 text-center mb-5">
                 <h2 class="display-5">Нашите услуги</h2>
-                <p class="lead">Comprehensive surveying solutions for all your needs??</p>
+                <p class="lead">Професионални геодезически и кадастрални решения</p>
             </div>
         </div>
 
-        <div class="row g-4">
-            <div class="col-md-4">
+        <!-- Initial 6 services visible -->
+        <div class="row g-4" id="servicesGrid">
+            <!-- Service 1 -->
+            <div class="col-lg-4 col-md-6">
                 <div class="card h-100">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Услуга 1</h5>
-                        <p class="card-text">Описание за услуга 1.</p>
+                    <img src="/images/service1img.jpg" class="card-img-top" alt="Услуга 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Трасиране на граници,сгради и съоражения</h5>
+                        <p class="card-text">Определяне и обозначаване на точните граници на имоти, сгради и съоръжения върху
+                            терена според кадастралната карта. Използва се за точно позициониране при строителни и имотни дейности.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <!-- Service 2 -->
+            <div class="col-lg-4 col-md-6">
                 <div class="card h-100">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Услуга 2</h5>
-                        <p class="card-text">Описание за услуга 2</p>
+                    <img src="/images/service2img.jpg" class="card-img-top" alt="Услуга 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Заснемане на граници, сгради и съоражения</h5>
+                        <p class="card-text">Прецизно измерване и документиране на съществуващи обекти и граници чрез геодезически уреди.
+                            Резултатът служи за актуализиране на кадастрални данни и изготвяне на техническа документация.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <!-- Service 3 -->
+            <div class="col-lg-4 col-md-6">
                 <div class="card h-100">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Услуга 3</h5>
-                        <p class="card-text">Описание за услуга 3</p>
+                    <img src="/images/service3img.jpg" class="card-img-top" alt="Услуга 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Изменения в кадастралната карта и кадастралния регистър</h5>
+                        <p class="card-text">Подготовка и внасяне на необходимите документи за промяна на собственост, граници, площи
+                            и други характеристики в кадастралната карта. Услугата гарантира актуалност и коректност на вписаните данни.</p>
                     </div>
                 </div>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100">
+                    <img src="/images/service4img.jpg" class="card-img-top" alt="Услуга 4">
+                    <div class="card-body">
+                        <h5 class="card-title">Нанасяне на сгради в кадастралната карта</h5>
+                        <p class="card-text">Заснемане и официално отразяване на съществуващи или новопостроени сгради в кадастралната карта.
+                            Необходимо е при узаконяване, вписване на собственост или последващи строителни процедури.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100">
+                    <img src="/images/service5img.jpg" class="card-img-top" alt="Услуга 5">
+                    <div class="card-body">
+                        <h5 class="card-title">Изготвяне на проекти за търпимост на сгради</h5>
+                        <p class="card-text">Подготовка на документи, доказващи търпимостта на постройки, изградени без разрешение, но отговарящи на законовите изисквания. Услугата позволява узаконяване и вписване в кадастъра.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100">
+                    <img src="/images/service6img.jpg" class="card-img-top" alt="Услуга 6">
+                    <div class="card-body">
+                        <h5 class="card-title">Подробно устройствени планове (ПУП)</h5>
+                        <p class="card-text">Разработване на планове, които определят предназначението, застрояването и устройствения режим на територии и имоти. Използват се за регулация, инвестиционно проектиране и строителни разрешения.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hidden services (7-10) - Initially hidden -->
+            <div class="col-lg-4 col-md-6 more-services" style="display: none;">
+                <div class="card h-100">
+                    <img src="/images/service7img.jpg" class="card-img-top" alt="Услуга 7">
+                    <div class="card-body">
+                        <h5 class="card-title">Вертикално планиране</h5>
+                        <p class="card-text">Проектиране на височинното разположение на терена и инфраструктурата с цел осигуряване на правилно отводняване,
+                            достъп и функционалност. Ключово за подготовка на строителни площадки и урбанизирани зони.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 more-services" style="display: none;">
+                <div class="card h-100">
+                    <img src="/images/service8img.jpg" class="card-img-top" alt="Услуга 8">
+                    <div class="card-body">
+                        <h5 class="card-title">Изработване на комбинирани скици</h5>
+                        <p class="card-text">Съчетаване на данни от кадастралната карта, регулационния план и реалните измервания в един документ.
+                            Използват се за доказване на граници, идентичност и устройствени решения.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 more-services" style="display: none;">
+                <div class="card h-100">
+                    <img src="/images/service9img.png" class="card-img-top" alt="Услуга 9">
+                    <div class="card-body">
+                        <h5 class="card-title">Технически експертизи</h5>
+                        <p class="card-text">Професионални геодезически и технически оценки, свързани с имоти, строежи и инфраструктурни обекти.
+                            Служат за съдебни дела, инвестиционни анализи и проверка на съответствия.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 more-services" style="display: none;">
+                <div class="card h-100">
+                    <img src="/images/service10img.jpg" class="card-img-top" alt="Услуга 10">
+                    <div class="card-body">
+                        <h5 class="card-title">Тахиметрични снимки</h5>
+                        <p class="card-text">Прецизни геодезически измервания чрез тотална станция за изготвяне на подробни ситуационни и височинни планове.
+                            Използват се при проектирането, строителството и актуализиране на кадастрални данни.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Show More/Less Button -->
+        <div class="row mt-4">
+            <div class="col-12 text-center">
+                <button id="toggleServicesBtn" class="btn btn-primary btn-lg">
+                    Виж всички услуги
+                </button>
             </div>
         </div>
     </div>
@@ -218,15 +316,31 @@
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js" integrity="sha512-X/YkDZyjTf4wyc2Vy16YGCPHwAY8rZJY+POgokZjQB2mhIRFJCckEGc6YyX9eNsPfn0PzThEuNs+uaomE5CO6A==" crossorigin="anonymous"></script>
 <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
+<!--         Smooth scrolling for navigation links-->
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
         });
+    });
+
+<!--     Toggle show more/less services-->
+    const toggleBtn = document.getElementById('toggleServicesBtn');
+    const moreServices = document.querySelectorAll('.more-services');
+    let servicesExpanded = false;
+
+    toggleBtn.addEventListener('click', function() {
+        servicesExpanded = !servicesExpanded;
+
+        moreServices.forEach(service => {
+            service.style.display = servicesExpanded ? 'block' : 'none';
+        });
+
+        toggleBtn.textContent = servicesExpanded ? 'Скрий услуги' : 'Виж всички услуги';
+    });
     </script>
 
 </body>
