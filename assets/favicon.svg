@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -3 38 38" width="32" height="32" role="img" aria-label="ГеоЛайтСървей">
+  <style>
+    @media (prefers-color-scheme: dark) {
+    .pg { fill: #1B3A31; stroke: #7FB3A2; }
+    .pt-ring { stroke: #E0C25F; }
+    .pt { fill: #E0C25F; }
+    }
+  </style>
+  <polygon class="pg" points="4.5,10.5 24.5,3.5 28.5,22 11,28.5" fill="#E3EBE7" stroke="#2F5D50" stroke-width="1.8" stroke-linejoin="round"/>
+  <circle class="pt-ring" cx="24.5" cy="3.5" r="6" fill="none" stroke="#C9A227" stroke-width="1" opacity="0.4"/>
+  <circle class="pt" cx="24.5" cy="3.5" r="2.9" fill="#C9A227"/>
+</svg>

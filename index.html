@@ -1,347 +1,406 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bg">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastre Solutions - Professional Surveying Services</title>
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg==" crossorigin="anonymous">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="bg_BG">
+<meta property="og:site_name" content="ГеоЛайтСървей">
+<meta property="og:title" content="ГеоЛайтСървей — геодезия и кадастър във Варна">
+<meta property="og:description" content="Лицензирана геодезическа практика за Варна и Източна България.">
+<meta property="og:url" content="https://example.bg/">
+<meta property="og:image" content="https://example.bg/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 
-    <style>
-        .hero-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 100px 0;
-        }
-
-        .navbar-brand {
-            font-weight: bold;
-            font-size: 1.5rem;
-        }
-
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            padding: 40px 0;
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ГеоЛайтСървей — геодезия, кадастър и устройствено планиране във Варна</title>
+<meta name="description" content="Лицензирана геодезическа фирма във Варна и Източна България: трасиране, изменения в КККР, заснемане, ПУП и технически експертизи.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600&family=Inter:wght@400;500&subset=cyrillic,cyrillic-ext,latin&display=swap">
+<link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body id="top">
 
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <div class="container">
-        <a class="navbar-brand" href="#home">Cadastre Solutions</a>
+<a class="skip-link" href="#main">Към съдържанието</a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<header class="header">
+  <div class="wrap header__bar">
+    <a class="brand" href="index.html" aria-label="ГеоЛайтСървей — начало">
+      <img src="assets/logo-horizontal.svg" alt="ГеоЛайтСървей" width="232" height="34">
+    </a>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#home">Начало</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#services">Услуги</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#projects">Проекти</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Контакти</a>
-                </li>
-            </ul>
-        </div>
+    <a class="header__phone" href="tel:+35900000000">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M6 3h3l1.6 4.2-2.1 1.5a11 11 0 0 0 6.8 6.8l1.5-2.1L21 15v3a3 3 0 0 1-3 3A15 15 0 0 1 3 6a3 3 0 0 1 3-3Z"/>
+      </svg>
+      <span class="ph">+359 00 000 0000</span>
+    </a>
+
+    <a class="btn btn--primary header__cta" href="request.html">Заяви услуга</a>
+
+    <button class="nav-toggle" type="button" id="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Меню">
+      <svg class="icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16"/>
+      </svg>
+      <svg class="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+        <path d="M6 6l12 12M18 6L6 18"/>
+      </svg>
+    </button>
+  </div>
+
+  <nav class="nav" id="nav" data-open="false" aria-label="Основна навигация">
+    <div class="wrap">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="#top" data-nav="top">Начало</a></li>
+        <li><a class="nav__link" href="#uslugi" data-nav="uslugi">Услуги</a></li>
+        <li><a class="nav__link" href="#kak-rabotim" data-nav="kak-rabotim">Как работим</a></li>
+        <li><a class="nav__link" href="#za-nas" data-nav="za-nas">За нас</a></li>
+        <li><a class="nav__link" href="#vaprosi" data-nav="vaprosi">Въпроси</a></li>
+        <li><a class="nav__link" href="#kontakti" data-nav="kontakti">Контакти</a></li>
+      </ul>
+      <a class="btn btn--primary btn--block" href="request.html">Заяви услуга</a>
     </div>
-</nav>
+  </nav>
+</header>
 
-<!-- Hero Section -->
-<section id="home" class="hero-section">
-    <div class="container">
-        <div class="row justify-content-center text-center">
-            <div class="col-lg-8">
-                <h1 class="display-6 mb-4">Геодезически и кадастриални услуги</h1>
-                <p class="lead mb-4">Cadastre Solutions предоставя разнообразни геодезически и кадастриални
-                    услуги извършени със съвременна апаратура и висок професионализъм.</p>
-                <a href="#contact" class="btn btn-light btn-lg">Свържи се с нас!</a>
-            </div>
-        </div>
+<main id="main">
+
+  <section class="hero pattern" aria-labelledby="hero-title">
+    <div class="wrap hero__inner">
+      <img class="hero__lockup" src="assets/logo-stacked.svg" alt="ГеоЛайтСървей — GeoLightSurvey" width="260" height="118">
+      <h1 id="hero-title">Геодезия, кадастър и устройствено планиране</h1>
+      <p class="hero__region">Лицензирана геодезическа практика за <strong>Варна и Източна България</strong>.</p>
+      <div class="hero__rule" role="presentation"></div>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="request.html">Заяви услуга</a>
+        <a class="btn btn--secondary" href="tel:+35900000000">Обади се: <span class="ph">+359 00 000 0000</span></a>
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- Services Section -->
-<section id="services" class="py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 text-center mb-5">
-                <h2 class="display-5">Нашите услуги</h2>
-                <p class="lead">Професионални геодезически и кадастрални решения</p>
-            </div>
-        </div>
+  <section class="section section--surface" id="uslugi" aria-labelledby="uslugi-title">
+    <div class="wrap">
+      <div class="section__head">
+        <h2 id="uslugi-title">Услуги</h2>
+        <p><span class="ph">[Описание 1 — кратко въведение към трите направления, две или три изречения, които обясняват на непрофесионалист какво покрива фирмата и как да избере правилната услуга за своя случай.]</span></p>
+      </div>
 
-        <!-- Initial 6 services visible -->
-        <div class="row g-4" id="servicesGrid">
-            <!-- Service 1 -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card h-100">
-                    <img src="images/service1img.jpg" class="card-img-top" alt="Услуга 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Трасиране на граници,сгради и съоражения</h5>
-                        <p class="card-text">Определяне и обозначаване на точните граници на имоти, сгради и съоръжения върху
-                            терена според кадастралната карта. Използва се за точно позициониране при строителни и имотни дейности.</p>
-                    </div>
-                </div>
+      <div class="pillars">
+        <article class="pillar" data-pillar data-open="true">
+          <button class="pillar__toggle" type="button" aria-expanded="true" aria-controls="pillar-kadastar">
+            <svg class="pillar__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 5.5 10 3l11 3v13l-7 2.5L3 18.5Z"/>
+              <path d="M10 3v17.5M21 6l-11 3"/>
+            </svg>
+            <span class="pillar__label">
+              <h3>Кадастър</h3>
+              <p><span class="ph">[Описание 2 — за кого е това направление и в кои случаи се налага, едно изречение.]</span></p>
+            </span>
+            <svg class="pillar__chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 10l6 6 6-6"/>
+            </svg>
+          </button>
+          <div class="pillar__panel" id="pillar-kadastar">
+            <div>
+              <ul class="pillar__services">
+                <li><a class="service-link" href="request.html?service=izmeneniya-kkkr"><span>Изменения в КККР</span><span>Заяви</span></a></li>
+                <li><a class="service-link" href="request.html?service=nanasyane-sgradi"><span>Нанасяне на сгради</span><span>Заяви</span></a></li>
+                <li><a class="service-link" href="request.html?service=tarpimost"><span>Проекти за търпимост</span><span>Заяви</span></a></li>
+                <li><a class="service-link" href="request.html?service=kombinirani-skici"><span>Комбинирани скици</span><span>Заяви</span></a></li>
+              </ul>
             </div>
+          </div>
+        </article>
 
-            <!-- Service 2 -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card h-100">
-                    <img src="images/service2img.jpg" class="card-img-top" alt="Услуга 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Заснемане на граници, сгради и съоражения</h5>
-                        <p class="card-text">Прецизно измерване и документиране на съществуващи обекти и граници чрез геодезически уреди.
-                            Резултатът служи за актуализиране на кадастрални данни и изготвяне на техническа документация.</p>
-                    </div>
-                </div>
+        <article class="pillar" data-pillar data-open="true">
+          <button class="pillar__toggle" type="button" aria-expanded="true" aria-controls="pillar-geodeziya">
+            <svg class="pillar__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+              <circle cx="12" cy="10" r="4.5"/>
+              <path d="M12 2v3M12 15v7M4 10h3M17 10h3M6 22h12"/>
+            </svg>
+            <span class="pillar__label">
+              <h3>Геодезия и измервания</h3>
+              <p><span class="ph">[Описание 3 — за кого е това направление и в кои случаи се налага, едно изречение.]</span></p>
+            </span>
+            <svg class="pillar__chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 10l6 6 6-6"/>
+            </svg>
+          </button>
+          <div class="pillar__panel" id="pillar-geodeziya">
+            <div>
+              <ul class="pillar__services">
+                <li><a class="service-link" href="request.html?service=trasirane"><span>Трасиране</span><span>Заяви</span></a></li>
+                <li><a class="service-link" href="request.html?service=zasnemane"><span>Заснемане</span><span>Заяви</span></a></li>
+                <li><a class="service-link" href="request.html?service=tahimetriya"><span>Тахиметрични снимки</span><span>Заяви</span></a></li>
+                <li><a class="service-link" href="request.html?service=vertikalno-planirane"><span>Вертикално планиране</span><span>Заяви</span></a></li>
+              </ul>
             </div>
+          </div>
+        </article>
 
-            <!-- Service 3 -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card h-100">
-                    <img src="images/service3img.jpg" class="card-img-top" alt="Услуга 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Изменения в кадастралната карта и кадастралния регистър</h5>
-                        <p class="card-text">Подготовка и внасяне на необходимите документи за промяна на собственост, граници, площи
-                            и други характеристики в кадастралната карта. Услугата гарантира актуалност и коректност на вписаните данни.</p>
-                    </div>
-                </div>
+        <article class="pillar" data-pillar data-open="true">
+          <button class="pillar__toggle" type="button" aria-expanded="true" aria-controls="pillar-ustroystvo">
+            <svg class="pillar__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3.5" y="3.5" width="17" height="17" rx="1.5"/>
+              <path d="M3.5 9h17M9 20.5V9"/>
+            </svg>
+            <span class="pillar__label">
+              <h3>Устройство и експертизи</h3>
+              <p><span class="ph">[Описание 4 — за кого е това направление и в кои случаи се налага, едно изречение.]</span></p>
+            </span>
+            <svg class="pillar__chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 10l6 6 6-6"/>
+            </svg>
+          </button>
+          <div class="pillar__panel" id="pillar-ustroystvo">
+            <div>
+              <ul class="pillar__services">
+                <li><a class="service-link" href="request.html?service=pup"><span>Подробни устройствени планове (ПУП)</span><span>Заяви</span></a></li>
+                <li><a class="service-link" href="request.html?service=ekspertizi"><span>Технически експертизи</span><span>Заяви</span></a></li>
+              </ul>
             </div>
-
-            <!-- Service 4 -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card h-100">
-                    <img src="images/service4img.jpg" class="card-img-top" alt="Услуга 4">
-                    <div class="card-body">
-                        <h5 class="card-title">Нанасяне на сгради в кадастралната карта</h5>
-                        <p class="card-text">Заснемане и официално отразяване на съществуващи или новопостроени сгради в кадастралната карта.
-                            Необходимо е при узаконяване, вписване на собственост или последващи строителни процедури.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Service 5 -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card h-100">
-                    <img src="images/service5img.jpg" class="card-img-top" alt="Услуга 5">
-                    <div class="card-body">
-                        <h5 class="card-title">Изготвяне на проекти за търпимост на сгради</h5>
-                        <p class="card-text">Подготовка на документи, доказващи търпимостта на постройки, изградени без разрешение, но отговарящи на законовите изисквания. Услугата позволява узаконяване и вписване в кадастъра.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Service 6 -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card h-100">
-                    <img src="images/service6img.jpg" class="card-img-top" alt="Услуга 6">
-                    <div class="card-body">
-                        <h5 class="card-title">Подробно устройствени планове (ПУП)</h5>
-                        <p class="card-text">Разработване на планове, които определят предназначението, застрояването и устройствения режим на територии и имоти. Използват се за регулация, инвестиционно проектиране и строителни разрешения.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Hidden services (7-10) - Initially hidden -->
-            <div class="col-lg-4 col-md-6 more-services" style="display: none;">
-                <div class="card h-100">
-                    <img src="images/service7img.jpg" class="card-img-top" alt="Услуга 7">
-                    <div class="card-body">
-                        <h5 class="card-title">Вертикално планиране</h5>
-                        <p class="card-text">Проектиране на височинното разположение на терена и инфраструктурата с цел осигуряване на правилно отводняване,
-                            достъп и функционалност. Ключово за подготовка на строителни площадки и урбанизирани зони.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 more-services" style="display: none;">
-                <div class="card h-100">
-                    <img src="images/service8img.jpg" class="card-img-top" alt="Услуга 8">
-                    <div class="card-body">
-                        <h5 class="card-title">Изработване на комбинирани скици</h5>
-                        <p class="card-text">Съчетаване на данни от кадастралната карта, регулационния план и реалните измервания в един документ.
-                            Използват се за доказване на граници, идентичност и устройствени решения.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 more-services" style="display: none;">
-                <div class="card h-100">
-                    <img src="images/service9img.png" class="card-img-top" alt="Услуга 9">
-                    <div class="card-body">
-                        <h5 class="card-title">Технически експертизи</h5>
-                        <p class="card-text">Професионални геодезически и технически оценки, свързани с имоти, строежи и инфраструктурни обекти.
-                            Служат за съдебни дела, инвестиционни анализи и проверка на съответствия.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 more-services" style="display: none;">
-                <div class="card h-100">
-                    <img src="images/service10img.jpg" class="card-img-top" alt="Услуга 10">
-                    <div class="card-body">
-                        <h5 class="card-title">Тахиметрични снимки</h5>
-                        <p class="card-text">Прецизни геодезически измервания чрез тотална станция за изготвяне на подробни ситуационни и височинни планове.
-                            Използват се при проектирането, строителството и актуализиране на кадастрални данни.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Show More/Less Button -->
-        <div class="row mt-4">
-            <div class="col-12 text-center">
-                <button id="toggleServicesBtn" class="btn btn-primary btn-lg">
-                    Виж всички услуги
-                </button>
-            </div>
-        </div>
+          </div>
+        </article>
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- Projects Section -->
-<section id="projects" class="py-5 bg-light">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 text-center mb-5">
-                <h2 class="display-5">Проекти/Снимки</h2>
-                <p class="lead"></p>
-            </div>
-        </div>
+  <section class="section pattern" id="kak-rabotim" aria-labelledby="kak-title">
+    <div class="wrap">
+      <div class="section__head">
+        <h2 id="kak-title">Как работим</h2>
+        <p><span class="ph">[Описание 5 — какво може да очаква клиентът от процеса и в какви срокове, две изречения.]</span></p>
+      </div>
 
-        <div class="row g-4">
-            <div class="col-lg-4 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Residential Development</h5>
-                        <p class="card-text">50-lot subdivision boundary survey and utility mapping.</p>
-                        <small class="text-muted">Completed: 2024</small>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Commercial Complex</h5>
-                        <p class="card-text">Topographic survey and construction layout for retail center.</p>
-                        <small class="text-muted">Completed: 2024</small>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Municipal Infrastructure</h5>
-                        <p class="card-text">City street improvement surveying and right-of-way mapping.</p>
-                        <small class="text-muted">Completed: 2023</small>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <ol class="steps">
+        <li class="step">
+          <span class="step__n">Стъпка 1</span>
+          <h3>Заявка</h3>
+          <p><span class="ph">[Стъпка 1 — описание: какво прави клиентът, какви данни са нужни и какво се случва след получаване на заявката.]</span></p>
+        </li>
+        <li class="step">
+          <span class="step__n">Стъпка 2</span>
+          <h3>Оглед и измерване</h3>
+          <p><span class="ph">[Стъпка 2 — описание: кога се излиза на терен, колко време отнема и какво трябва да е осигурено на място.]</span></p>
+        </li>
+        <li class="step">
+          <span class="step__n">Стъпка 3</span>
+          <h3>Изготвяне на документи</h3>
+          <p><span class="ph">[Стъпка 3 — описание: какви документи се изготвят и какво получава клиентът за преглед.]</span></p>
+        </li>
+        <li class="step">
+          <span class="step__n">Стъпка 4</span>
+          <h3>Внасяне в СГКК</h3>
+          <p><span class="ph">[Стъпка 4 — описание: кой внася документите, какви са административните срокове и как се уведомява клиентът.]</span></p>
+        </li>
+      </ol>
     </div>
-</section>
+  </section>
 
-<!-- Contact Section -->
-<section id="contact" class="py-5">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <h2 class="text-center mb-5">Contact Us</h2>
+  <section class="section section--surface" id="za-nas" aria-labelledby="za-nas-title">
+    <div class="wrap">
+      <div class="section__head">
+        <h2 id="za-nas-title">За нас</h2>
+        <p><span class="ph">[Описание 6 — кратко представяне на фирмата: от кога работи, кой стои зад нея и с какви случаи се занимава най-често. Два до три изречения, без маркетингови твърдения.]</span></p>
+      </div>
 
-                <div class="row g-4">
-                    <div class="col-md-6">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h5 class="card-title">Get in Touch</h5>
-                                <p class="card-text">
-                                    <strong>Address:</strong><br>
-                                    123 Survey Street<br>
-                                    City, State 12345
-                                </p>
-                                <p class="card-text">
-                                    <strong>Phone:</strong> (555) 123-4567<br>
-                                    <strong>Email:</strong> info@cadastresolutions.com
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h5 class="card-title">Business Hours</h5>
-                                <p class="card-text">
-                                    <strong>Monday - Friday:</strong> 8:00 AM - 5:00 PM<br>
-                                    <strong>Saturday:</strong> 9:00 AM - 2:00 PM<br>
-                                    <strong>Sunday:</strong> Closed
-                                </p>
-                                <p class="card-text">
-                                    <strong>Emergency Services:</strong> Available 24/7
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <dl class="facts">
+        <div class="fact">
+          <dt>Лиценз / правоспособност</dt>
+          <dd><span class="ph">[Номер на лиценз]</span></dd>
         </div>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <h5>Cadastre Solutions</h5>
-                <p>Професионални кадастриални услуги</p>
-            </div>
-            <div class="col-md-6 text-md-end">
-                <p>&copy; 2024 Cadastre Solutions. All rights reserved.</p>
-                <p>Licensed Professional Land Surveyors</p>
-            </div>
+        <div class="fact">
+          <dt>Години дейност</dt>
+          <dd><span class="ph">[Година на основаване]</span></dd>
         </div>
+        <div class="fact">
+          <dt>Оборудване</dt>
+          <dd><span class="ph">[Марки и модели GNSS и тахиметри]</span></dd>
+        </div>
+        <div class="fact">
+          <dt>Район на работа</dt>
+          <dd><span class="ph">[Обхват — общини и области]</span></dd>
+        </div>
+      </dl>
     </div>
+  </section>
+
+  <section class="section" id="vaprosi" aria-labelledby="vaprosi-title">
+    <div class="wrap">
+      <div class="section__head">
+        <h2 id="vaprosi-title">Често задавани въпроси</h2>
+      </div>
+
+      <div class="faq">
+        <div class="faq__item" data-faq data-open="false">
+          <h3>
+            <button class="faq__toggle" type="button" aria-expanded="false" aria-controls="faq-1">
+              <span class="ph">[Въпрос 1]</span>
+              <svg class="faq__sign" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+                <path d="M12 5v14M5 12h14"/>
+              </svg>
+            </button>
+          </h3>
+          <div class="faq__panel" id="faq-1">
+            <div><p><span class="ph">[Отговор 1 — един параграф, който обяснява случая с думите на клиента, споменава какви документи са необходими и колко време отнема процедурата.]</span></p></div>
+          </div>
+        </div>
+
+        <div class="faq__item" data-faq data-open="false">
+          <h3>
+            <button class="faq__toggle" type="button" aria-expanded="false" aria-controls="faq-2">
+              <span class="ph">[Въпрос 2]</span>
+              <svg class="faq__sign" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+                <path d="M12 5v14M5 12h14"/>
+              </svg>
+            </button>
+          </h3>
+          <div class="faq__panel" id="faq-2">
+            <div><p><span class="ph">[Отговор 2 — един параграф, който обяснява случая с думите на клиента, споменава какви документи са необходими и колко време отнема процедурата.]</span></p></div>
+          </div>
+        </div>
+
+        <div class="faq__item" data-faq data-open="false">
+          <h3>
+            <button class="faq__toggle" type="button" aria-expanded="false" aria-controls="faq-3">
+              <span class="ph">[Въпрос 3]</span>
+              <svg class="faq__sign" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+                <path d="M12 5v14M5 12h14"/>
+              </svg>
+            </button>
+          </h3>
+          <div class="faq__panel" id="faq-3">
+            <div><p><span class="ph">[Отговор 3 — един параграф, който обяснява случая с думите на клиента, споменава какви документи са необходими и колко време отнема процедурата.]</span></p></div>
+          </div>
+        </div>
+
+        <div class="faq__item" data-faq data-open="false">
+          <h3>
+            <button class="faq__toggle" type="button" aria-expanded="false" aria-controls="faq-4">
+              <span class="ph">[Въпрос 4]</span>
+              <svg class="faq__sign" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+                <path d="M12 5v14M5 12h14"/>
+              </svg>
+            </button>
+          </h3>
+          <div class="faq__panel" id="faq-4">
+            <div><p><span class="ph">[Отговор 4 — един параграф, който обяснява случая с думите на клиента, споменава какви документи са необходими и колко време отнема процедурата.]</span></p></div>
+          </div>
+        </div>
+
+        <div class="faq__item" data-faq data-open="false">
+          <h3>
+            <button class="faq__toggle" type="button" aria-expanded="false" aria-controls="faq-5">
+              <span class="ph">[Въпрос 5]</span>
+              <svg class="faq__sign" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+                <path d="M12 5v14M5 12h14"/>
+              </svg>
+            </button>
+          </h3>
+          <div class="faq__panel" id="faq-5">
+            <div><p><span class="ph">[Отговор 5 — един параграф, който обяснява случая с думите на клиента, споменава какви документи са необходими и колко време отнема процедурата.]</span></p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface" id="kontakti" aria-labelledby="kontakti-title">
+    <div class="wrap">
+      <div class="section__head">
+        <h2 id="kontakti-title">Контакти</h2>
+      </div>
+
+      <ul class="contact-list">
+        <li class="contact">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 3h3l1.6 4.2-2.1 1.5a11 11 0 0 0 6.8 6.8l1.5-2.1L21 15v3a3 3 0 0 1-3 3A15 15 0 0 1 3 6a3 3 0 0 1 3-3Z"/>
+          </svg>
+          <div>
+            <span class="contact__label">Телефон</span>
+            <p class="contact__value"><a href="tel:+35900000000"><span class="ph">+359 00 000 0000</span></a></p>
+          </div>
+        </li>
+
+        <li class="contact">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="14" rx="1.5"/>
+            <path d="m3.5 6.5 8.5 6.5 8.5-6.5"/>
+          </svg>
+          <div>
+            <span class="contact__label">Имейл</span>
+            <p class="contact__value"><a href="mailto:office@example.bg"><span class="ph">office@example.bg</span></a></p>
+          </div>
+        </li>
+
+        <li class="contact">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"/>
+            <circle cx="12" cy="10" r="2.5"/>
+          </svg>
+          <div>
+            <span class="contact__label">Адрес</span>
+            <p class="contact__value"><span class="contact__big ph">[Адрес на офиса, Варна]</span></p>
+          </div>
+        </li>
+
+        <li class="contact">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M12 7v5.2l3.4 2"/>
+          </svg>
+          <div>
+            <span class="contact__label">Работно време</span>
+            <p class="contact__value"><span class="contact__big ph">[Работно време]</span></p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <img class="footer__lockup" src="assets/logo-mono-light.svg" alt="ГеоЛайтСървей — GeoLightSurvey" width="260" height="118">
+        <p class="footer__licence"><span class="ph">[Правоспособност по ЗКИР — номер на лиценз и име на правоспособното лице]</span></p>
+      </div>
+
+      <div>
+        <h4>Услуги</h4>
+        <ul>
+          <li><a href="#uslugi">Кадастър</a></li>
+          <li><a href="#uslugi">Геодезия и измервания</a></li>
+          <li><a href="#uslugi">Устройство и експертизи</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Контакт</h4>
+        <ul>
+          <li><a href="tel:+35900000000"><span class="ph">+359 00 000 0000</span></a></li>
+          <li><a href="mailto:office@example.bg"><span class="ph">office@example.bg</span></a></li>
+          <li><a href="request.html">Заяви услуга</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p>© 2026 ГеоЛайтСървей</p>
+      <ul>
+        <li><a href="#">Политика за поверителност</a></li>
+        <li><a href="#">Общи условия</a></li>
+      </ul>
+    </div>
+  </div>
 </footer>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js" integrity="sha512-X/YkDZyjTf4wyc2Vy16YGCPHwAY8rZJY+POgokZjQB2mhIRFJCckEGc6YyX9eNsPfn0PzThEuNs+uaomE5CO6A==" crossorigin="anonymous"></script>
-<script>
-<!--         Smooth scrolling for navigation links-->
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    });
 
-<!--     Toggle show more/less services-->
-    const toggleBtn = document.getElementById('toggleServicesBtn');
-    const moreServices = document.querySelectorAll('.more-services');
-    let servicesExpanded = false;
-
-    toggleBtn.addEventListener('click', function() {
-        servicesExpanded = !servicesExpanded;
-
-        moreServices.forEach(service => {
-            service.style.display = servicesExpanded ? 'block' : 'none';
-        });
-
-        toggleBtn.textContent = servicesExpanded ? 'Скрий услуги' : 'Виж всички услуги';
-    });
-    </script>
-
+<script src="js/main.js" defer></script>
 </body>
 </html>
