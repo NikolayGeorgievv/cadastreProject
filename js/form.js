@@ -37,7 +37,7 @@ async function submitRequest(payload) {
     service: function (v) { return v ? "" : "Изберете услуга от списъка, или „Друго“, ако не сте сигурни."; },
     location: function (v) { return v.trim().length >= 2 ? "" : "Напишете населеното място или местността, където е имотът."; },
     identifier: function () { return ""; },
-    message: function (v) { return v.trim().length >= 10 ? "" : "Опишете накратко какво ви е нужно."; },
+    message: function (v) { return v.trim().length >= 10 ? "" : "Опишете накратко какво ви е нужно — един-два реда стигат."; },
     consent: function (_v, el) { return el.checked ? "" : "Отбележете съгласието, за да можем да обработим заявката."; }
   };
 
@@ -73,6 +73,11 @@ async function submitRequest(payload) {
     });
   });
 
+  /* honeypot: real people never see this field, so anything in it is a bot.
+     openedAt catches the other common pattern — a submit within a second or
+     two of load, which no human types fast enough to produce. */
+  var openedAt = Date.now();
+
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
     errorPanel.hidden = true;
@@ -98,7 +103,10 @@ async function submitRequest(payload) {
       identifier: fields.identifier.el.value.trim(),
       message: fields.message.el.value.trim(),
       consent: fields.consent.el.checked,
-      submittedAt: new Date().toISOString()
+      submittedAt: new Date().toISOString(),
+      /* server-side spam signals — never trust these in the browser */
+      hp: form.elements.website ? form.elements.website.value : "",
+      elapsedMs: Date.now() - openedAt
     };
 
     submitBtn.disabled = true;

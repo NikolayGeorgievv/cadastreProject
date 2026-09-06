@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Заявка за услуга — ГеоЛайтСървей</title>
+<title>Заявка за услуга — Гео Лайт Сървей</title>
 <meta name="description" content="Изпратете заявка за геодезическа или кадастрална услуга. Варна и Източна България.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,16 +17,17 @@
 
 <header class="header">
   <div class="wrap header__bar">
-    <a class="brand" href="index.html" aria-label="ГеоЛайтСървей — начало">
-      <img src="assets/logo-horizontal.svg" alt="ГеоЛайтСървей" width="232" height="34">
+    <a class="brand" href="index.html">
+      <img src="assets/logo-emblem.svg" alt="" width="42" height="42">
+      <span class="brand__name">Гео Лайт Сървей</span>
     </a>
 
-    <a class="header__phone" href="tel:+35900000000">
+    <span class="header__phone">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M6 3h3l1.6 4.2-2.1 1.5a11 11 0 0 0 6.8 6.8l1.5-2.1L21 15v3a3 3 0 0 1-3 3A15 15 0 0 1 3 6a3 3 0 0 1 3-3Z"/>
       </svg>
-      <span class="ph">+359 00 000 0000</span>
-    </a>
+      <span class="ph">[Телефон]</span>
+    </span>
 
     <a class="btn btn--primary header__cta" href="request.html">Заяви услуга</a>
 
@@ -46,8 +47,6 @@
         <li><a class="nav__link" href="index.html#top">Начало</a></li>
         <li><a class="nav__link" href="index.html#uslugi">Услуги</a></li>
         <li><a class="nav__link" href="index.html#kak-rabotim">Как работим</a></li>
-        <li><a class="nav__link" href="index.html#za-nas">За нас</a></li>
-        <li><a class="nav__link" href="index.html#vaprosi">Въпроси</a></li>
         <li><a class="nav__link" href="index.html#kontakti">Контакти</a></li>
       </ul>
       <a class="btn btn--primary btn--block" href="request.html">Заяви услуга</a>
@@ -59,7 +58,7 @@
   <div class="wrap">
     <div class="section__head">
       <h1>Заявка за услуга</h1>
-      <p><span class="ph">[Описание 1 — какво се случва след изпращане на заявката, в какъв срок отговаряме и какво е добре да се приложи. Два или три изречения.]</span></p>
+      <p><span class="ph">[Описание 3 — какво се случва след изпращане на заявката, в какъв срок отговаряме и какво е добре да се приложи. Два или три изречения.]</span></p>
     </div>
 
     <div class="form-layout">
@@ -90,20 +89,20 @@
             <select class="select" id="f-service" name="service" required>
               <option value="">Изберете услуга</option>
               <optgroup label="Кадастър">
-                <option value="izmeneniya-kkkr">Изменения в КККР</option>
-                <option value="nanasyane-sgradi">Нанасяне на сгради</option>
-                <option value="tarpimost">Проекти за търпимост</option>
-                <option value="kombinirani-skici">Комбинирани скици</option>
+                <option value="kadastar">Кадастър</option>
+                <option value="tarpimost">Търпимост на сграда</option>
+                <option value="kombinirana-skica">Комбинирана скица</option>
               </optgroup>
               <optgroup label="Геодезия и измервания">
+                <option value="zasnemane">Геодезическо заснемане</option>
                 <option value="trasirane">Трасиране</option>
-                <option value="zasnemane">Заснемане</option>
-                <option value="tahimetriya">Тахиметрични снимки</option>
+                <option value="tahimetrichna-snimka">Тахиметрична снимка</option>
                 <option value="vertikalno-planirane">Вертикално планиране</option>
               </optgroup>
-              <optgroup label="Устройство и експертизи">
-                <option value="pup">Подробни устройствени планове (ПУП)</option>
-                <option value="ekspertizi">Технически експертизи</option>
+              <optgroup label="Устройство, експертизи и процедури">
+                <option value="pup">Подробен устройствен план (ПУП)</option>
+                <option value="tehnicheski-ekspertizi">Технически експертизи</option>
+                <option value="obstoyatelstveni-proverki">Обстоятелствени проверки</option>
               </optgroup>
               <option value="drugo">Друго</option>
             </select>
@@ -129,6 +128,13 @@
             <p class="field__error" id="e-message" role="alert"></p>
           </div>
 
+          <!-- honeypot: hidden from people, tempting to bots. never remove the
+               aria-hidden/tabindex or real users will land in it. -->
+          <div class="hp" aria-hidden="true">
+            <label for="f-website">Не попълвайте това поле</label>
+            <input type="text" id="f-website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
           <div class="field field--check" data-field="consent">
             <input type="checkbox" id="f-consent" name="consent" required>
             <label for="f-consent">Съгласен съм с обработката на личните ми данни съгласно <a href="#">Политиката за поверителност</a>.</label>
@@ -143,13 +149,13 @@
 
         <div class="panel-status" id="form-error" hidden role="alert">
           <h2>Заявката не беше изпратена</h2>
-          <p>Връзката не успя. Опитайте отново или ни се обадете — заявката ви не е загубена, полетата остават попълнени.</p>
-          <a class="btn btn--secondary" href="tel:+35900000000">Обади се: <span class="ph">+359 00 000 0000</span></a>
+          <p>Връзката не успя. Опитайте отново или ни пишете на имейл — заявката ви не е загубена, полетата остават попълнени.</p>
+          <a class="btn btn--secondary" href="mailto:geolightsurvey@gmail.com">Пишете ни: geolightsurvey@gmail.com</a>
         </div>
 
         <div class="panel-status" id="form-success" hidden>
           <h2>Заявката е получена</h2>
-          <p><span class="ph">[Описание 2 — какво следва след получаване на заявката и в какъв срок ще се свържем с клиента.]</span></p>
+          <p><span class="ph">[Описание 4 — какво следва след получаване на заявката и в какъв срок ще се свържем с клиента.]</span></p>
           <a class="btn btn--secondary" href="index.html">Обратно към сайта</a>
         </div>
       </div>
@@ -157,7 +163,7 @@
       <aside class="form-aside">
         <h2>По-бързо по телефон</h2>
         <p>Ако случаят е спешен или не сте сигурни коя услуга ви трябва, обадете се — ще ви кажем какво е нужно.</p>
-        <a class="contact__big" href="tel:+35900000000"><span class="ph">+359 00 000 0000</span></a>
+        <span class="contact__big ph">[Телефон]</span>
         <p><span class="ph">[Работно време]</span></p>
       </aside>
     </div>
@@ -168,31 +174,32 @@
   <div class="wrap">
     <div class="footer__grid">
       <div>
-        <img class="footer__lockup" src="assets/logo-mono-light.svg" alt="ГеоЛайтСървей — GeoLightSurvey" width="260" height="118">
+        <img class="footer__emblem" src="assets/logo-emblem-white.svg" alt="Гео Лайт Сървей" width="160" height="161">
         <p class="footer__licence"><span class="ph">[Правоспособност по ЗКИР — номер на лиценз и име на правоспособното лице]</span></p>
       </div>
 
       <div>
         <h4>Услуги</h4>
         <ul>
-          <li><a href="index.html#uslugi">Кадастър</a></li>
-          <li><a href="index.html#uslugi">Геодезия и измервания</a></li>
-          <li><a href="index.html#uslugi">Устройство и експертизи</a></li>
+          <li><a href="index.html#usluga-kadastar">Кадастър</a></li>
+          <li><a href="index.html#usluga-trasirane">Трасиране</a></li>
+          <li><a href="index.html#usluga-pup">ПУП</a></li>
+          <li><a href="index.html#uslugi">Всички услуги</a></li>
         </ul>
       </div>
 
       <div>
         <h4>Контакт</h4>
         <ul>
-          <li><a href="tel:+35900000000"><span class="ph">+359 00 000 0000</span></a></li>
-          <li><a href="mailto:office@example.bg"><span class="ph">office@example.bg</span></a></li>
+          <li><span class="ph">[Телефон]</span></li>
+          <li><a href="mailto:geolightsurvey@gmail.com">geolightsurvey@gmail.com</a></li>
           <li><a href="index.html#kontakti">Контакти</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer__bottom">
-      <p>© 2026 ГеоЛайтСървей</p>
+      <p>© 2026 Гео Лайт Сървей</p>
       <ul>
         <li><a href="#">Политика за поверителност</a></li>
         <li><a href="#">Общи условия</a></li>

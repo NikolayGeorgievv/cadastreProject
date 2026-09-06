@@ -1,11 +1,13 @@
 (function () {
   "use strict";
 
-  /* placeholder outline toggle: ?ph=1 or Shift+P */
+  /* placeholder outline toggle: ?ph=1 or Shift+P.
+     e.code is the physical key, so this still works on a Bulgarian layout
+     where Shift+P produces "П" rather than "P". */
   var body = document.body;
   if (/[?&]ph=1/.test(location.search)) body.classList.add("show-placeholders");
   document.addEventListener("keydown", function (e) {
-    if (e.shiftKey && (e.key === "P" || e.key === "p") && !/input|textarea|select/i.test(e.target.tagName)) {
+    if (e.shiftKey && e.code === "KeyP" && !/input|textarea|select/i.test(e.target.tagName)) {
       body.classList.toggle("show-placeholders");
     }
   });
@@ -14,22 +16,6 @@
   var toggle = document.getElementById("nav-toggle");
   var nav = document.getElementById("nav");
   var DESKTOP = window.matchMedia("(min-width: 64em)");
-
-    /* pillars ship open; collapse on small screens */
-    var pillars = Array.prototype.slice.call(document.querySelectorAll("[data-pillar]"));
-    if (!DESKTOP.matches) {
-      document.documentElement.classList.add("no-anim");
-      pillars.forEach(function (item) {
-        item.setAttribute("data-open", "false");
-        var btn = item.querySelector(".pillar__toggle");
-        if (btn) btn.setAttribute("aria-expanded", "false");
-      });
-      requestAnimationFrame(function () {
-        requestAnimationFrame(function () {
-          document.documentElement.classList.remove("no-anim");
-        });
-      });
-    }
 
   function setMenu(open) {
     if (!toggle || !nav) return;
@@ -53,29 +39,44 @@
     DESKTOP.addEventListener("change", function () { setMenu(false); });
   }
 
-  /* disclosure widgets: service pillars + FAQ accordion */
-  function bindDisclosure(selector, buttonSelector) {
-    Array.prototype.forEach.call(document.querySelectorAll(selector), function (item) {
-      var btn = item.querySelector(buttonSelector);
-      if (!btn) return;
-      btn.addEventListener("click", function () {
-        var open = btn.getAttribute("aria-expanded") !== "true";
-        btn.setAttribute("aria-expanded", String(open));
-        item.setAttribute("data-open", String(open));
-      });
-    });
+  /* services accordion */
+  function setOpen(item, open) {
+    var btn = item.querySelector(".svc__toggle");
+    item.setAttribute("data-open", String(open));
+    if (btn) btn.setAttribute("aria-expanded", String(open));
   }
-  bindDisclosure("[data-pillar]", ".pillar__toggle");
-  bindDisclosure("[data-faq]", ".faq__toggle");
 
-  /* active nav link */
+  var items = Array.prototype.slice.call(document.querySelectorAll("[data-svc]"));
+  items.forEach(function (item) {
+    var btn = item.querySelector(".svc__toggle");
+    if (!btn) return;
+    btn.addEventListener("click", function () {
+      setOpen(item, btn.getAttribute("aria-expanded") !== "true");
+    });
+  });
+
+  /* deep links: index.html#usluga-trasirane opens that service.
+     Ad landing pages and the footer links rely on this. */
+  function openFromHash() {
+    var id = location.hash.slice(1);
+    if (!id) return;
+    var item = document.getElementById(id);
+    if (!item || !item.hasAttribute("data-svc")) return;
+    setOpen(item, true);
+    item.scrollIntoView({ block: "start" });
+  }
+  openFromHash();
+  window.addEventListener("hashchange", openFromHash);
+
+  /* active nav link.
+     "top" is excluded deliberately: it resolves to <body>, which is always
+     intersecting and would compete with the real sections. */
   var links = Array.prototype.slice.call(document.querySelectorAll(".nav__link[data-nav]"));
   if (links.length && "IntersectionObserver" in window) {
     var sections = links
+      .filter(function (l) { return l.getAttribute("data-nav") !== "top"; })
       .map(function (l) { return document.getElementById(l.getAttribute("data-nav")); })
       .filter(Boolean);
-
-    var visible = new Map();
 
     function mark(id) {
       links.forEach(function (l) {
@@ -84,19 +85,26 @@
       });
     }
 
+    var live = new Set();
+
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        visible.set(entry.target.id, entry.isIntersecting ? entry.intersectionRatio : 0);
+        if (entry.isIntersecting) live.add(entry.target);
+        else live.delete(entry.target);
       });
-      var best = null, bestRatio = 0;
-      visible.forEach(function (ratio, id) {
-        if (ratio > bestRatio) { bestRatio = ratio; best = id; }
+
+      if (window.scrollY < 40) { mark("top"); return; }
+
+      /* topmost section still in the band wins — a tall section you are
+         reading beats a short one that happens to be fully visible */
+      var best = null;
+      live.forEach(function (el) {
+        if (!best || el.getBoundingClientRect().top < best.getBoundingClientRect().top) best = el;
       });
-      if (best) mark(best);
-      else if (window.scrollY < 40) mark("top");
+      if (best) mark(best.id);
     }, {
       rootMargin: "-30% 0px -50% 0px",
-      threshold: [0, 0.25, 0.5, 1]
+      threshold: 0
     });
 
     sections.forEach(function (s) { io.observe(s); });
