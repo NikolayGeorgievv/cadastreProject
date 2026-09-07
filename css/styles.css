@@ -689,8 +689,8 @@ body.show-placeholders .ph {
   .hero__emblem { width: 240px; }
 
   .svc { max-width: 58rem; }
-  .steps { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .contact-list { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .contact-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .form-layout { grid-template-columns: minmax(0, 1.9fr) minmax(0, 1fr); align-items: start; }
   .form-aside { position: sticky; top: calc(var(--nav-h) + var(--s-5)); }
 }
