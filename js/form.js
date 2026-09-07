@@ -24,20 +24,20 @@ async function submitRequest(payload) {
 
   /* rules — messages say what to fix, not what went wrong */
   var rules = {
-    name: function (v) { return v.trim().length >= 2 ? "" : "Напишете името си, за да знаем как да се обърнем към вас."; },
+    name: function (v) { return v.trim().length >= 2 ? "" : "Напишете името си, за да знаем как да се обърнем към Вас."; },
     phone: function (v) {
       var digits = v.replace(/[^\d]/g, "");
-      if (digits.length < 8) return "Добавете телефон с код — например 0888 123 456.";
+      if (digits.length < 8) return "Добавете телефон с код - например 0888 123 456.";
       return "";
     },
     email: function (v) {
       if (!v.trim()) return "";
-      return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) ? "" : "Проверете имейла — трябва да съдържа @ и домейн, например ime@mail.bg.";
+      return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) ? "" : "Проверете имейла - трябва да съдържа @ и домейн, например ime@mail.bg.";
     },
     service: function (v) { return v ? "" : "Изберете услуга от списъка, или „Друго“, ако не сте сигурни."; },
     location: function (v) { return v.trim().length >= 2 ? "" : "Напишете населеното място или местността, където е имотът."; },
     identifier: function () { return ""; },
-    message: function (v) { return v.trim().length >= 10 ? "" : "Опишете накратко какво ви е нужно — един-два реда стигат."; },
+    message: function (v) { return v.trim().length >= 10 ? "" : "Опишете накратко какво ви е нужно - един-два реда стигат."; },
     consent: function (_v, el) { return el.checked ? "" : "Отбележете съгласието, за да можем да обработим заявката."; }
   };
 
