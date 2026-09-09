@@ -6,9 +6,8 @@
 <title>Гео Лайт Сървей - геодезия, кадастър и проектиране във Варна</title>
 <meta name="description" content="Лицензирана геодезическа практика във Варна и Източна България: трасиране, кадастър, заснемане, ПУП, технически експертизи и обстоятелствени проверки.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600&family=Inter:wght@400;500&subset=cyrillic,cyrillic-ext,latin&display=swap">
+<link rel="preload" href="assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/ibm-plex-sans-600.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body id="top">
@@ -356,20 +355,27 @@
         <li class="step">
           <span class="step__n">Стъпка 1</span>
           <h3>Заявка</h3>
-          <p><span class="ph">Можете да се свържете с нас по телефон или да попълните заявка през сайта като попълните изискана информация.</span></p>
+<!--          <p><span class="ph">По <a href="tel:+3599999999">03599999999</a> или със заявка <a href="request.html">тук</a>.</span></p>-->
+          <ul class="svc__cases">
+            <li>Можете да се свържете с нас по телефон или да изпратите заявка през сайта, като попълните изискана информация.</li>
+          </ul>
         </li>
         <li class="step">
           <span class="step__n">Стъпка 2</span>
-          <h3>Оглед и измерване</h3>
-          <p><span class="ph">Анализ на ситуацията и преглед на документи.
-                              Ще прегледаме документите и ще анализираме ситуацията съобразно вашият конкретен казус.</span></p>
+          <h3>Анализ на ситуацията и преглед на документи.</h3>
+          <p><span class="ph"></span></p>
+          <ul class="svc__cases">
+            <li>Ще прегледаме документите и ще анализираме ситуацията съобразно вашият конкретен казус.</li>
+          </ul>
         </li>
         <li class="step">
           <span class="step__n">Стъпка 3</span>
-          <h3>Изготвяне на документи</h3>
-          <p><span class="ph">Изготвяне на оферта и последващи действия.
-                              След като сме проучили вашият казус ще бъде изготвена оферта със срок, необходими
-                              действия и цена.</span></p>
+          <h3>Изготвяне на оферта и последващи действия.</h3>
+          <p><span class="ph"></span></p>
+          <ul class="svc__cases">
+            <li> След като сме проучили вашият казус ще бъде изготвена оферта със срок, необходими
+              действия и цена.</li>
+          </ul>
         </li>
       </ol>
     </div>
@@ -460,8 +466,7 @@
     <div class="footer__bottom">
       <p>© 2026 Гео Лайт Сървей ДПК</p>
       <ul>
-        <li><a href="#">Политика за поверителност</a></li>
-        <li><a href="#">Общи условия</a></li>
+        <li><a href="privacy.html">Политика за поверителност</a></li>
       </ul>
     </div>
   </div>
