@@ -6,9 +6,8 @@
 <title>Заявка за услуга - Гео Лайт Сървей</title>
 <meta name="description" content="Изпратете заявка за геодезическа или кадастрална услуга. Варна и Източна България.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600&family=Inter:wght@400;500&subset=cyrillic,cyrillic-ext,latin&display=swap">
+<link rel="preload" href="assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/ibm-plex-sans-600.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -143,7 +142,7 @@
 
           <div class="field field--check" data-field="consent">
             <input type="checkbox" id="f-consent" name="consent" required>
-            <label for="f-consent">Съгласен съм с обработката на личните ми данни съгласно <a href="#">Политиката за поверителност</a>.</label>
+            <label for="f-consent">Съгласен съм с обработката на личните ми данни съгласно <a href="privacy.html">Политиката за поверителност</a>.</label>
             <p class="field__error" id="e-consent" role="alert"></p>
           </div>
 
@@ -204,7 +203,7 @@
     </div>
 
     <div class="footer__bottom">
-      <p>© 2026 Гео Лайт Сървей</p>
+      <p>© 2026 Гео Лайт Сървей ДПК</p>
       <ul>
         <li><a href="privacy.html">Политика за поверителност</a></li>
       </ul>

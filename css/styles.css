@@ -144,9 +144,6 @@ img, svg { display: block; max-width: 100%; }
   border-radius: 2px;
 }
 
-/* suppress transitions for one frame on load (see main.js) */
-.no-anim *, .no-anim *::before, .no-anim *::after { transition: none !important; }
-
 /* ---------- placeholders ---------- */
 
 .ph { color: var(--muted); }
