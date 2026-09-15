@@ -1,0 +1,22 @@
+name = "geolightsurvey"
+compatibility_date = "2026-09-01"
+pages_build_output_dir = "public"
+
+[vars]
+ENVIRONMENT = "production"
+# must be on the routing-enabled domain
+NOTIFY_FROM = "noreply@geolightsurvey.com"
+
+# Free, but only to this address. Omitting `to` in notify.js makes the
+# binding use it, so the endpoint cannot mail anyone else.
+[[send_email]]
+name = "EMAIL"
+destination_address = "geolightsurvey@gmail.com"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "geolightsurvey"
+database_id = "TODO-after-wrangler-d1-create"
+
+# TURNSTILE_SECRET is NOT here. Set it with:
+#   wrangler pages secret put TURNSTILE_SECRET
