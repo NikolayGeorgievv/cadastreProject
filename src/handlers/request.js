@@ -4,24 +4,27 @@ import { saveRequest, markEmailSent } from "../../lib/store.js";
 import { sendNotification } from "../../lib/notify.js";
 
 /* POST /api/request
+
    Orchestration only — validation, spam checks, storage and mail each live
    in their own module. The order matters: store before send, so a mail
-   failure never loses the lead. */
+   failure never loses the lead.
+
+   Method checking lives in the router, not here. */
 
 const MAX_BODY_BYTES = 32 * 1024;
 const MIN_ELAPSED_MS = 3000;
 
 const json = (body, status = 200) =>
-    new Response(JSON.stringify(body), {
-      status,
-      headers: { "content-type": "application/json; charset=utf-8" }
-    });
+  new Response(JSON.stringify(body), {
+    status,
+    headers: { "content-type": "application/json; charset=utf-8" }
+  });
 
 /* A bot gets a normal-looking 200. Telling it why it failed just helps it
    pass next time. */
 const silentAccept = () => json({ ok: true });
 
-export async function onRequestPost({ request, env }) {
+export async function handleFormRequest(request, env) {
   const length = Number(request.headers.get("content-length") || 0);
   if (length > MAX_BODY_BYTES) return json({ ok: false }, 413);
 
@@ -41,12 +44,17 @@ export async function onRequestPost({ request, env }) {
 
   const ip = request.headers.get("CF-Connecting-IP") || "";
 
-  /* Skipped when no secret is configured, so `wrangler pages dev` works
-     without credentials. Never let that shortcut reach production —
-     see the guard below. */
+  /* Skipped when no secret is configured, so `wrangler dev` works without
+     credentials. The production guard below stops that shortcut ever
+     shipping. */
   if (env.TURNSTILE_SECRET) {
     const passed = await verifyTurnstile(raw?.turnstileToken, env.TURNSTILE_SECRET, ip);
-    if (!passed) return json({ ok: false, errors: { consent: "Проверката не беше преминета. Опитайте отново или ни се обадете." } }, 400);
+    if (!passed) {
+      return json(
+        { ok: false, errors: { turnstile: "Проверката не беше преминета. Опитайте отново или ни се обадете." } },
+        400
+      );
+    }
   } else if (env.ENVIRONMENT === "production") {
     console.error({ event: "turnstile_secret_missing" });
     return json({ ok: false }, 500);
