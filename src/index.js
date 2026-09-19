@@ -1,4 +1,5 @@
 import { handleFormRequest } from "./handlers/request.js";
+import { runRetentionSweep } from "./handlers/retention.js";
 
 /* Worker entry point.
 
@@ -24,5 +25,10 @@ export default {
     }
 
     return new Response("Not Found", { status: 404 });
+  },
+
+  /* Cron trigger — see [triggers] in wrangler.toml. */
+  async scheduled(event, env, ctx) {
+    ctx.waitUntil(runRetentionSweep(env));
   }
 };
