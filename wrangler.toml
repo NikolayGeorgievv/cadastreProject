@@ -32,7 +32,7 @@ destination_address = "geolightsurvey@gmail.com"
  database_id = "3bf63be2-9480-46a8-a900-d2954ceda896"
 
 [triggers]
-crons = ["30 3 * * 0"]
+crons = ["30 3 * * SUN"]
 
 # TURNSTILE_SECRET is NOT here. Set it with:
 #   wrangler secret put TURNSTILE_SECRET
