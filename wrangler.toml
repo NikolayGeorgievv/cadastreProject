@@ -25,10 +25,10 @@ name = "EMAIL"
 destination_address = "geolightsurvey@gmail.com"
 
 # Uncomment in Block F, once `wrangler d1 create` returns the real id.
-# [[d1_databases]]
-# binding = "DB"
-# database_name = "geolightsurvey"
-# database_id = "TODO-after-wrangler-d1-create"
+ [[d1_databases]]
+ binding = "DB"
+ database_name = "geolightsurvey"
+ database_id = "3bf63be2-9480-46a8-a900-d2954ceda896"
 
 # TURNSTILE_SECRET is NOT here. Set it with:
 #   wrangler secret put TURNSTILE_SECRET

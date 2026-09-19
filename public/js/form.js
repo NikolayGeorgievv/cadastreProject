@@ -6,6 +6,7 @@ import { rules, normalize, SERVICE_LABELS } from "./validation.js";
    validation.js and are shared with the Worker. */
 
 const ENDPOINT = "/api/request";
+const WIDGET = "#turnstile-widget";
 
 const form = document.getElementById("request-form");
 if (form) {
@@ -26,37 +27,42 @@ if (form) {
     return typeof el.value === "string" ? el.value.trim() : "";
   }
 
+  /* Turnstile has a message slot but no input of its own — el stays null and
+     every path below guards for that. */
   const fields = {};
   for (const wrap of form.querySelectorAll("[data-field]")) {
     const key = wrap.getAttribute("data-field");
-    const el = form.elements[key];
-    if (!el) continue;
-    fields[key] = { wrap, el, error: wrap.querySelector(".field__error"), touched: false };
+    fields[key] = {
+      wrap,
+      el: form.elements[key] || null,
+      error: wrap.querySelector(".field__error"),
+      touched: false
+    };
   }
 
-  /* `override` lets the server's answer be displayed through the same path
-     as a local rule failure — one place that touches aria-invalid. */
   function show(key, msg) {
     const f = fields[key];
     if (!f) return;
     const visible = Boolean(msg);
     f.wrap.setAttribute("data-invalid", visible ? "true" : "false");
-    f.error.textContent = visible ? msg : "";
+    if (f.error) f.error.textContent = visible ? msg : "";
+    if (!f.el) return;
     f.el.setAttribute("aria-invalid", visible ? "true" : "false");
-    if (visible) f.el.setAttribute("aria-describedby", f.error.id);
+    if (visible && f.error) f.el.setAttribute("aria-describedby", f.error.id);
     else f.el.removeAttribute("aria-describedby");
   }
 
   function validate(key, force) {
     const f = fields[key];
-    if (!f) return true;
-    const msg = rules[key] ? rules[key](valueOf(f.el)) : "";
+    if (!f || !f.el || !rules[key]) return true;
+    const msg = rules[key](valueOf(f.el));
     show(key, (f.touched || force) && msg ? msg : "");
     return !msg;
   }
 
   for (const key of Object.keys(fields)) {
     const f = fields[key];
+    if (!f.el) continue;
     const blurEvent = f.el.type === "checkbox" || f.el.tagName === "SELECT" ? "change" : "blur";
     f.el.addEventListener(blurEvent, () => {
       f.touched = true;
@@ -65,6 +71,26 @@ if (form) {
     f.el.addEventListener("input", () => {
       if (f.touched) validate(key);
     });
+  }
+
+  /* Tokens are single-use and expire after five minutes. Because this form
+     submits over fetch rather than navigating away, a rejected submission
+     leaves a spent token in the widget — the next attempt would fail for a
+     reason unrelated to what the person typed. So: reset after every
+     failure, never after success. */
+  function turnstileToken() {
+    const el = form.elements["cf-turnstile-response"];
+    return el ? el.value : "";
+  }
+
+  function resetTurnstile() {
+    if (!window.turnstile) return;
+    try {
+      window.turnstile.reset(WIDGET);
+    } catch {
+      /* widget not rendered (script blocked, or hostname not allowed while
+         developing) — nothing to reset, and the server decides anyway */
+    }
   }
 
   /* honeypot: real people never see this field, so anything in it is a bot.
@@ -99,11 +125,12 @@ if (form) {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     errorPanel.hidden = true;
+    show("turnstile", "");
 
     let firstBad = null;
     for (const key of Object.keys(fields)) {
       fields[key].touched = true;
-      if (!validate(key, true) && !firstBad) firstBad = fields[key].el;
+      if (!validate(key, true) && !firstBad && fields[key].el) firstBad = fields[key].el;
     }
     if (firstBad) {
       firstBad.focus();
@@ -122,6 +149,7 @@ if (form) {
         consent: fields.consent.el.checked
       }),
       submittedAt: new Date().toISOString(),
+      turnstileToken: turnstileToken(),
       /* server-side spam signals — never trust these in the browser */
       hp: form.elements.website ? form.elements.website.value : "",
       elapsedMs: Date.now() - openedAt
@@ -134,15 +162,18 @@ if (form) {
       const res = await submitRequest(payload);
 
       if (!res.ok) {
+        resetTurnstile();
+
         /* the server rejected specific fields — surface them in place rather
            than showing a panel that says nothing useful */
         if (res.errors && Object.keys(res.errors).length) {
           let first = null;
           for (const [key, msg] of Object.entries(res.errors)) {
             show(key, msg);
-            if (!first && fields[key]) first = fields[key].el;
+            if (!first && fields[key] && fields[key].el) first = fields[key].el;
           }
           if (first) first.focus();
+          else focusPanel(errorPanel);
           return;
         }
         throw new Error("rejected");
@@ -152,6 +183,7 @@ if (form) {
       successPanel.hidden = false;
       focusPanel(successPanel);
     } catch {
+      resetTurnstile();
       errorPanel.hidden = false;
       focusPanel(errorPanel);
     } finally {
