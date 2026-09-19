@@ -523,6 +523,12 @@ body.show-placeholders .ph {
   overflow-wrap: anywhere;
 }
 .contact__value a:hover { color: var(--primary-hover); }
+.contact__note {
+  margin: var(--s-1) 0 0;
+  max-width: none;
+  font-size: var(--fs-200);
+  color: var(--muted);
+}
 
 /* ---------- footer ---------- */
 
