@@ -16,6 +16,7 @@ enabled = true
 ENVIRONMENT = "production"
 # must be on the routing-enabled domain
 NOTIFY_FROM = "noreply@geolightsurvey.com"
+NOTIFY_TO = "geolightsurvey@gmail.com"
 
 # Free, but only to this verified destination. notify.js omits `to` so the
 # binding uses it — the endpoint cannot be made to mail anyone else.
