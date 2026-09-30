@@ -90,6 +90,8 @@
   --gutter: var(--s-5);
   --focus-w: 2px;
   --pattern-opacity: 0.06;
+
+  --logo-h: 38px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -271,7 +273,7 @@ body.show-placeholders .ph {
   margin-right: auto;
   text-decoration: none;
 }
-.brand img { height: 38px; width: auto; flex: none; }
+.brand img { height: var(--logo-h); width: auto; flex: none; }
 .brand__name {
   font-family: var(--font-head);
   font-size: var(--fs-400);
@@ -784,7 +786,7 @@ body.show-placeholders .ph {
     background: var(--accent);
   }
   .header__cta { display: inline-flex; }
-  .brand img { height: 42px; }
+  :root { --nav-h: 4.75rem; --logo-h: 42px; }
   .brand__name { font-size: var(--fs-500); }
 
   .hero__inner { max-width: 60rem; }
@@ -799,6 +801,29 @@ body.show-placeholders .ph {
 
 @media (max-width: 63.99em) {
   .header__cta { display: none; }
+}
+
+@media (max-width: 39.99em) {
+  .header__bar {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "brand toggle"
+      "phone toggle";
+    align-items: center;
+    column-gap: var(--s-4);
+    row-gap: 0;
+  }
+
+  .brand { grid-area: brand; }
+
+  .header__phone {
+    grid-area: phone;
+    /* aligns the number under the name, not under the logo */
+    padding-left: calc(var(--logo-h) + var(--s-3));
+  }
+
+  .nav-toggle { grid-area: toggle; }
 }
 
 /* ---------- reduced motion ---------- */
